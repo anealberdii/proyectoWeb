@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Contenedor principal para la foto de fondo -->
+    <div class="background-container-detInterprete">
+        <!-- Foto de fondo (semi-transparente) -->
+        <img src="{{ promotor.foto.url }}" alt="Foto de fondo {{ promotor.nombre }}" class="background-photo-interprete">
+        <!-- Foto del festival (redonda) -->
+        <img src="{{ promotor.foto.url }}" alt="Foto de {{ promotor.nombre }}" class ="interprete-image">
+
+        <h2> {{ promotor.nombre }} </h2>
+
+    </div>
+
+    <!-- Detalles del festival -->
+    <div class="promotor-detalles">
+        <h2>Descripción: </h2>
+        <p>{{ promotor.descripcion}}</p>
+        <h2>Festivales: </h2>
+        {% if festivales %}
+        
+            {% for festival in festivales %}
+                <p>{{ festival.nombre }}</p>
+            {% endfor %}
+        
+        {% else %}
+            <p>No se encontraron festivales para este promotor.</p>
+        {% endif %}
+    </div>
+{% endblock %}

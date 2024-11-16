@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <!-- Foto del festival -->
+    <div class="festival-foto-contenedor">
+        <img src="{{ festival.foto.url }}" alt="Foto del festival {{ festival.nombre }}" class="foto-festival">
+        
+        <!-- Cuadro de texto encima de la foto -->
+        <div class="festival-texto-encima">
+            <h2>{{ festival.nombre }}</h2>
+            <h3>{{ festival.fecha }}</h3>
+        </div>
+    </div>
+
+
+    <!-- Detalles del festival -->
+    <div class="festival-detalles">
+        <h2>Descripción: </h2>
+        <p>{{ festival.descripcion }}</p>
+        <h2>Fecha: </h2>
+        <p>{{ festival.fecha }}</p>
+        <h2>Ubicación:</h2>
+        <p>{{ festival.ubicacion }}</p>
+        <h2>Precio: </h2>
+        <p>{{ festival.precio }} €</p>
+        
+        <!-- Lista de intérpretes asociados al festival -->
+        <h2>Intérpretes:</h2>
+        <ul>
+            {% for interprete in festival.interpretes.all %}
+                <p>{{ interprete.nombre }}</p>
+            {% empty %}
+                <p>No hay intérpretes asignados a este festival.</p>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

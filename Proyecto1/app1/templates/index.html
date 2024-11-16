@@ -1,0 +1,37 @@
+<!-- app1/templates/index.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Inicio - Promo Concert{% endblock %}
+
+{% block content %}
+    <div class="video-background">
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="{% static 'media/videos/cortado.mp4' %}" type="video/mp4">
+            Tu navegador no soporta el video en HTML5.
+        </video>
+
+        <img src="{% static 'media/logo/logoPeq.png' %}" alt="LogoPeq" class="logoPeq">
+    </div>
+
+    <!-- Contenido de festivales -->
+    <h1>Nuestros festivales más destacados</h1>
+    {% if index %}
+        <ul>
+            {% for item in index %}
+                <li>
+                    <h2>{{ item.festival.nombre }}</h2>
+                    <h3>{{ item.promotor.nombre }}</h3>
+                    {% if item.festival.foto %}
+                        <img src="{{ item.festival.foto.url }}" alt="Foto de {{ item.festival.nombre }}" style="max-width: 300px;">
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay festivales disponibles para estos promotores.</p>
+    {% endif %}
+{% endblock %}
+
+
+<!-- cambios -->

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Intérpretes - Promo Concert{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for interprete in interpretes %}
+            <li>
+                <a href="{% url 'detalles_interprete' id=interprete.id %}">
+                    <h2>{{ interprete.nombre }}</h2>
+                    {% if interprete.foto %}
+                        <img src="{{ interprete.foto.url }}" alt="Foto de {{ interprete.nombre }}" style="max-width: 300px;">
+                    {% endif %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

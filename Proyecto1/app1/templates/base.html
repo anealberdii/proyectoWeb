@@ -1,0 +1,45 @@
+<!-- app1/templates/base.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Promo Concert{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="{% static 'media/logo/logo.png' %}" alt="Logo" class="logo">
+            </div>
+            <div class="title-container">
+                <h1>Promo Concert</h1>
+            </div>
+            <!-- Navigation inside header -->
+            <nav class="site-nav">
+                <ul class="nav-links">
+                    <li><a href="{% url 'index' %}">Inicio</a></li>
+                    <li><a href="{% url 'lista_festivales' %}">Festivales</a></li>
+                    <li><a href="{% url 'lista_interpretes' %}">Intérpretes</a></li>
+                    <li><a href="{% url 'lista_promotores' %}">Promotores</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 Promo Concert. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
+<!-- cambios -->

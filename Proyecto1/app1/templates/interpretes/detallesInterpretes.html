@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Contenedor principal para la foto de fondo -->
+    <div class="background-container-detInterprete">
+        <!-- Foto de fondo (semi-transparente) -->
+        <img src="{{ interprete.foto.url }}" alt="Foto de fondo {{ interprete.nombre }}" class="background-photo-interprete">
+        <!-- Foto del festival (redonda) -->
+        <img src="{{ interprete.foto.url }}" alt="Foto de {{ interprete.nombre }}" class ="interprete-image">
+
+        <h2> {{ interprete.nombre }} </h2>
+
+    </div>
+
+    <!-- Detalles del festival -->
+    <div class="interprete-detalles">
+        <h2>Descripción: </h2>
+        <p>{{ interprete.info_general }}</p>
+        <h2>Genero musical: </h2>
+        <p>{{interprete.genero_musica }}</p>
+        <h2>Festivales: </h2>
+        {% if festivales %}
+        
+            {% for festival in festivales %}
+                <p>{{ festival.nombre }}</p>
+            {% endfor %}
+        
+        {% else %}
+            <p>No se encontraron festivales para este intérprete.</p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Lista de Festivales</h1>
+
+    <!-- Formulario de filtros -->
+    <form method="get">
+        <label for="fecha">Mes:</label>
+        <input type="month" name="fecha" id="fecha" value="{{ request.GET.fecha }}">
+
+        <label for="artista">Artista:</label>
+        <select name="artista" id="artista">
+            <option value="">-- Selecciona un artista --</option>
+            {% for interprete in artistas %}
+                <option value="{{ interprete.id }}" {% if request.GET.artista == interprete.id|stringformat:"s" %}selected{% endif %}>
+                    {{ interprete.nombre }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Filtrar</button>
+    </form>
+
+    {% if festivales %}
+    <div class = "listaFest">
+        <ul>
+            {% for festival in festivales %}
+                <li>
+                    <a href="{% url 'detalles_festival' id=festival.id %}">
+                        <h2>{{ festival.nombre }}</h2>
+                        {% if festival.foto %}
+                            <img src="{{ festival.foto.url }}" alt="Foto de {{ festival.nombre }}" style="max-width: 300px;">
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+        <p>No hay festivales disponibles con los filtros seleccionados.</p>
+    {% endif %}
+{% endblock %}
