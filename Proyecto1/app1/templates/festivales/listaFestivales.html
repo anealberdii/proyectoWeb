@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lista de Festivales{% endblock %}
 
 {% block content %}
     <h1>Lista de Festivales</h1>
@@ -22,7 +25,7 @@
     </form>
 
     {% if festivales %}
-    <div class = "listaFest">
+    <div class="listaFest">
         <ul>
             {% for festival in festivales %}
                 <li>
@@ -39,4 +42,10 @@
     {% else %}
         <p>No hay festivales disponibles con los filtros seleccionados.</p>
     {% endif %}
+    
+{% endblock %}
+
+{% block extra_scripts %}
+    <!-- Cargar el script específico para esta página -->
+    <script src="{% static 'js/festivalesLista.js' %}"></script>
 {% endblock %}

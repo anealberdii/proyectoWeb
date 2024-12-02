@@ -1,3 +1,4 @@
+
 /* General */
 
 /* Main Content */
@@ -190,4 +191,46 @@ ul li img {
 
 .festival-foto-inicio:hover .texto-oculto {
     transform: translateY(0);
+}
+
+.festival-foto-contenedor {
+    position: relative; /* Necesario para posicionar elementos hijos con position: absolute */
+    height: 420px;
+    width: auto; /* O ajusta a un tamaño deseado */
+
+}
+
+.foto-festival {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+.festival-texto-encima {
+    position: absolute;
+    bottom: 10%; /* Lo posiciona 10% desde la parte inferior */
+    right: 10%; /* Ajusta según prefieras */
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    color: #fff; /* Texto en blanco */
+    padding: 5px; /* Espaciado interno */
+    text-align: center; /* Centrado del texto */
+    border-radius: 10px; /* Bordes redondeados */
+    width: 90%;
+    max-width: 350px; /* Ajusta el tamaño máximo */
+}
+
+.festival-texto-encima h2 {
+    font-size: 2.5em; /* Ajusta el tamaño de fuente */
+    margin: 0 0 10px 0; /* Espaciado debajo del título */
+    color: #f1f1f1; /* Texto en gris claro */
+}
+
+.festival-texto-encima h3 {
+    font-size: 1.5em; /* Tamaño del subtítulo */
+    margin: 0; /* Sin margen adicional */
+    color: #fff; /* Texto en blanco */
 }
