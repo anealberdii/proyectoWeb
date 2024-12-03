@@ -133,6 +133,78 @@ h2, h3 {
 }
 
 /* Lista de festivales en index.html */
+.festival-item ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribuye los elementos horizontalmente */
+    gap: 20px; /* Espacio entre cuadros */
+    padding: 0;
+}
+
+.festival-item ul li {
+    border-radius: 8px;
+    padding: 20px;
+    flex-basis: calc(33.333% - 20px); /* Cada cuadro ocupa un tercio del espacio menos el gap */
+    max-width: calc(33.333% - 20px); /* Limita el ancho de cada cuadro */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+.festival-item ul li h2 {
+    font-size: 1.4em;
+    color: #706f6c;
+    margin-bottom: 10px;
+}
+
+.festival-item ul li h3 {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.festival-item ul li p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #666;
+}
+
+.festival-item ul li img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+.festival-foto-inicio {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.festival-foto-inicio img {
+    width: 100%;
+    height: auto;
+}
+
+.texto-oculto {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semitransparente */
+    padding: 10px;
+    width: 100%;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+} 
+
+.texto-oculto p {
+    color: white;
+}
+
+.festival-foto-inicio:hover .texto-oculto {
+    transform: translateY(0);
+}
+
+/* Lista de festivales en index.html */
 .listaFest ul li {
     display: flex; /* Alineación horizontal de contenido */
     align-items: center; /* Centra el contenido verticalmente */
@@ -370,6 +442,7 @@ h2, h3 {
     font-size: 1.4em;
     color: #333;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
 }
 
 /* Botones de navegación (flechas) */

@@ -17,21 +17,33 @@
     <!-- Contenido de festivales -->
     <h1>Nuestros festivales más destacados</h1>
     {% if index %}
-        <ul>
-            {% for item in index %}
-                <li>
-                    <h2>{{ item.festival.nombre }}</h2>
-                    <h3>{{ item.promotor.nombre }}</h3>
-                    {% if item.festival.foto %}
-                        <img src="{{ item.festival.foto.url }}" alt="Foto de {{ item.festival.nombre }}" style="max-width: 300px;">
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
+        <div class="festival-item">
+            <ul>
+                {% for item in index %}
+                    <li>
+                        <div class = "festival-foto-inicio">
+                            {% if item.festival.foto %}
+                                <img src="{{ item.festival.foto.url }}" alt="Foto de {{ item.festival.nombre }}" class="festival-imagen">
+                            {% endif %}
+                            <div class = "texto-oculto">
+                                <p><strong>Fecha:</strong> {{ item.festival.fecha }}</p>
+                                <p><strong>Ubicación:</strong> {{ item.festival.ubicacion }}</p>
+                                <p><strong>Precio:</strong> {{ item.festival.precio }} €</p>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     {% else %}
         <p>No hay festivales disponibles para estos promotores.</p>
     {% endif %}
+
+    <script src="{% static 'js/index.js' %}"></script>
+    
 {% endblock %}
 
-
-<!-- cambios -->
+{% block extra_scripts %}
+    <!-- Cargar el script específico para esta página -->
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
