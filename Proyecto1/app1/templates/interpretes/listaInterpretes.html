@@ -4,16 +4,25 @@
 {% block title %}Intérpretes - Promo Concert{% endblock %}
 
 {% block content %}
-    <ul>
+<h1>Lista de Interpretes</h1>
+<div class="carrusel-container">
+    <div class="carrusel">
         {% for interprete in interpretes %}
-            <li>
+            <div class="carrusel-item">
                 <a href="{% url 'detalles_interprete' id=interprete.id %}">
+                    <img src="{{ interprete.foto.url }}" alt="Foto de {{ interprete.nombre }}">
                     <h2>{{ interprete.nombre }}</h2>
-                    {% if interprete.foto %}
-                        <img src="{{ interprete.foto.url }}" alt="Foto de {{ interprete.nombre }}" style="max-width: 300px;">
-                    {% endif %}
                 </a>
-            </li>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
+    <button class="carrusel-button prev">&#10094;</button>
+    <button class="carrusel-button next">&#10095;</button>
+</div>
+
+<script src="{% static 'js/carrusel.js' %}"></script>
 {% endblock %}
+
+{% block extra_scripts %}
+    <script src="{% static 'js/carrusel.js' %}"></script>
+{% endblock%}
