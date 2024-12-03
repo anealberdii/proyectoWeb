@@ -21,7 +21,7 @@
             <ul>
                 {% for item in index %}
                     <li>
-                        <div class = "festival-foto-inicio">
+                        <div class = "festival-foto-inicio" urlFoto="{% url 'detalles_festival' id=item.festival.id %}">
                             {% if item.festival.foto %}
                                 <img src="{{ item.festival.foto.url }}" alt="Foto de {{ item.festival.nombre }}" class="festival-imagen">
                             {% endif %}

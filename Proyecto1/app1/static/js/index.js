@@ -17,5 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 textoOculto.classList.remove('visible'); // Quita la clase para ocultarlo
             }
         });
+
+        foto.addEventListener('click', () => {
+            // Redirigir a otro HTML al hacer clic
+            const targetUrl = foto.getAttribute('urlFoto'); // Obtén la URL desde un atributo data
+            if (targetUrl) {
+                window.location.href = targetUrl;
+            }
+        });
     });
 });
