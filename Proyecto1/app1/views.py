@@ -91,3 +91,9 @@ def detalles_interprete(request, id):
         'interprete': interprete,
         'festivales': festivales
     }) 
+
+def formulario(request, id):
+    # Obtiene el festival por el ID
+    festival = get_object_or_404(Festival, id=id)
+    # Pasa el festival al contexto para la plantilla
+    return render(request, 'formulario.html', {'festival': festival})

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Reserva de Entradas para {{ festival.nombre }}</h1>
+
+    <form method="POST" class="formulario-reserva">
+        {% csrf_token %}
+
+        <div class="form-row">
+            <div class="form-field">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-field">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-field">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-field">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-field">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required>
+            </div>
+            <div class="form-field">
+                <label for="localidad">Localidad:</label>
+                <input type="text" id="localidad" name="localidad" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-field">
+                <label for="numero_entradas">Número de Entradas:</label>
+                <input type="number" id="numero_entradas" name="numero_entradas" min="1" required>
+            </div>
+        </div>
+
+        <input type="hidden" id="festival" name="festival" value="{{ festival.nombre }}">
+
+        <div class="form-field">
+            <label for="terminos_condiciones">
+                <input type="checkbox" id="terminos_condiciones" name="terminos_condiciones" required>
+                Acepto los términos y condiciones.
+            </label>
+        </div>
+
+        <button type="submit" class="submit-btn">Enviar</button>
+    </form>
+
+{% endblock %}

@@ -9,4 +9,5 @@ urlpatterns = [
     path ('festival/<int:id>/', views.detalles_festival, name='detalles_festival'),
     path ('interprete/<int:id>', views.detalles_interprete, name = 'detalles_interprete'),
     path ('promotor/<int:id>', views.detalles_promotor, name = 'detalles_promotor'),
+    path ('festival/<int:id>/comprarEntrada', views.formulario, name = 'formulario'),
 ]

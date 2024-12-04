@@ -4,16 +4,38 @@
 {% block title %}Promotores - Promo Concert{% endblock %}
 
 {% block content %}
-    <ul>
-        {% for promotor in promotores %}
-            <li>
-                <a href="{% url 'detalles_promotor' id=promotor.id %}">
-                    <h2>{{ promotor.nombre }}</h2>
-                    {% if promotor.foto %}
-                        <img src="{{ promotor.foto.url }}" alt="Foto de {{ promotor.nombre }}" style="max-width: 300px;">
-                    {% endif %}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+    <h1>Lista de Promotores</h1>
+
+    <!-- Tabla con 4 columnas para mostrar los nombres y las fotos -->
+    {% if promotores %}
+    <table class="promotores-table">
+        <tbody>
+            {% for promotor in promotores %}
+                {% if forloop.counter0|divisibleby:4 %}
+                <tr> <!-- Nueva fila después de cada 4 elementos -->
+                {% endif %}
+                <td>
+                    <a href="{% url 'detalles_promotor' id=promotor.id %}">
+                        <div class="card">
+                            <!-- Mostrar la foto del promotor si existe -->
+                            {% if promotor.foto %}
+                            <img src="{{ promotor.foto.url }}" alt="Foto de {{ promotor.nombre }}" class="promotor-img">
+                            {% endif %}
+                            <h2 class="card-title">{{ promotor.nombre }}</h2>
+                        </div>
+                    </a>
+                </td>
+                {% if forloop.counter|divisibleby:4 or forloop.last %}
+                </tr> <!-- Cierra la fila si hemos llegado al final de la fila o es el último promotor -->
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No hay promotores disponibles.</p>
+    {% endif %}
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{% static 'js/listaPromotores.js' %}"></script>
 {% endblock %}
