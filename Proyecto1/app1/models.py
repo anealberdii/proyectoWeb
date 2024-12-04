@@ -18,7 +18,8 @@ class Interprete (models.Model):
     info_general = models.TextField()
     pais = models.CharField(max_length=50)
     genero_musica = models.CharField(max_length=50)
-    foto = models.ImageField(upload_to='interpretes/') 
+    foto = models.ImageField(upload_to='interpretes/')
+    fotoFondo = models.ImageField(upload_to='interpretes/')  
 
     def __str__(self):
         return self.nombre
@@ -32,7 +33,8 @@ class Festival (models.Model):
     promotor = models.ForeignKey(Promotor, on_delete=models.CASCADE, related_name='festivales')
     interpretes = models.ManyToManyField(Interprete, related_name='festivales_en_festival', blank=True)
     precio = models.DecimalField(max_digits=6, decimal_places=2)
-    foto = models.ImageField(upload_to='static/media/festivales/')   
+    foto = models.ImageField(upload_to='festivales/')
+    entradasDisponibles = models.PositiveIntegerField()   
 
     def __str__(self):
         return self.nombre
