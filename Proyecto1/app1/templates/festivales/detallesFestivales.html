@@ -34,6 +34,13 @@
         <div class="detalles-caja">
             <h3>Precio: {{ festival.precio }} €</h3>
         </div>
+
+        <!-- Esto es en tu archivo detallesFestivales.html -->
+        <span id="entradas-disponibles" data-entradas="{{ festival.entradasDisponibles }}">
+            {{ festival.entradasDisponibles }}
+        </span>
+
+        
         <a href="{% url 'formulario' id=festival.id %}">
 
         <button class="comprar-btn">Comprar Entrada</button>

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Código para el carrusel
     const carrusel = document.querySelector('.carrusel');
     const items = document.querySelectorAll('.carrusel-item');
     const prevButton = document.querySelector('.carrusel-button.prev');
@@ -51,4 +52,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         updateCarrusel();
     }, 3000); // Cada 3 segundos
+
+
+    // Este es el bloque que chequea la cantidad de entradas disponibles
+    const entradasDisponiblesElement = document.getElementById('entradas-disponibles');
+    const entradasDisponibles = parseInt(entradasDisponiblesElement.getAttribute('data-entradas'));
+
+    // Condición para mostrar el mensaje solo si quedan 10 o menos entradas
+    if (entradasDisponibles <= 10) {
+        // Asegúrate de usar las comillas invertidas (backticks) para interpolar la variable
+        alert(`¡Date prisa, solo quedan ${entradasDisponibles} entradas para el festival!`);
+    } else {
+        
+    }
+
 });

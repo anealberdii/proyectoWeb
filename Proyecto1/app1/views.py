@@ -47,10 +47,13 @@ def lista_festivales(request):
 
 
 def detalles_festival(request, id):
-    # Obtiene el festival por el ID
+
     festival = get_object_or_404(Festival, id=id)
-    # Pasa el festival al contexto para la plantilla
-    return render(request, 'festivales/detallesFestivales.html', {'festival': festival})
+
+    return render(request, 'festivales/detallesFestivales.html', {
+        'festival': festival,
+        'entradasDisponibles': festival.entradasDisponibles,
+    })
 
 
 def lista_promotores (request):
