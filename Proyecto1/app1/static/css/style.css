@@ -575,3 +575,83 @@ input[type="checkbox"] {
 .card:hover {
         box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
+
+.festival-contenedor {
+    display: flex; /* Activa el diseño en columnas */
+    gap: 20px; /* Espaciado entre las columnas */
+    margin-top: 20px; /* Separación de la imagen superior */
+}
+
+/* Columna izquierda: Descripción */
+.festival-descripcion {
+    flex: 7; /* 70% del ancho */
+    background-color: #2d2d2d; /* Color más oscuro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más marcada */
+    color: #000000; /* Texto claro para contraste */
+    border: 2px solid #444; /* Borde para destacar */
+}
+
+
+/* Cajas de Detalles */
+.descripcion-caja {
+    background-color: white; /* Fondo más oscuro */
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+    color: black; /* Cambia el color del texto a blanco */
+    border: 2px solid #555;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+.festival-detalles {
+    flex: 3; /* 30% del ancho */
+    background-color: #2d2d2d; /* Fondo oscuro */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #444;
+    color: #b5b4b4; /* Asegura que el texto de la columna también sea blanco */
+}
+
+/* Cajas de Detalles */
+.detalles-caja {
+    background-color: #444; /* Fondo más oscuro */
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #f4f4f4; /* Cambia el color del texto a blanco */
+    border: 2px solid #555;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de Comprar Entrada */
+.comprar-btn {
+    width: 100%; /* Botón ocupa el ancho de la columna */
+    padding: 10px 15px;
+    background-color: #007bff; /* Azul */
+    color: #fff; /* Texto blanco */
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.comprar-btn:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+    transform: translateY(-3px); /* Efecto de elevación */
+}
+
+.festival-descripcion h2, .festival-detalles h2,
+.festival-detalles h3 {
+    color: white;  /* Cambia el color de los títulos a blanco */
+}
+
+.festival-detalles .detalles-caja h3 {
+    color: white;  /* Cambia el color de los h3 dentro de las cajas de detalles */
+}

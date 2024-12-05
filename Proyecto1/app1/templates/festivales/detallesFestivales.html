@@ -13,18 +13,37 @@
         <h3>{{ festival.fecha }}</h3>
     </div>
 </div>
+<div class="festival-contenedor">
+    <!-- Lado izquierdo (Descripción) -->
+    <div class="festival-descripcion">
+        <h2>Descripción</h2>
+        <div class="descripcion-caja">
+            <p>{{ festival.descripcion }}</p>
+        </div>
+    </div>
 
-<div class="festival-detalles">
-    <h2>Descripción: </h2>
-    <p>{{ festival.descripcion }}</p>
-    <h2>Fecha: </h2>
-    <p>{{ festival.fecha }}</p>
-    <h2>Ubicación:</h2>
-    <p>{{ festival.ubicacion }}</p>
-    <h2>Precio: </h2>
-    <p>{{ festival.precio }} €</p>
+    <!-- Lado derecho (Detalles y Comprar Entrada) -->
+    <div class="festival-detalles">
+        <h2>Detalles</h2>
+        <div class="detalles-caja">
+            <h3>Fecha: {{ festival.fecha }}</h3>
+        </div>
+        <div class="detalles-caja">
+            <h3>Ubicación: {{ festival.ubicacion }}</h3>
+        </div>
+        <div class="detalles-caja">
+            <h3>Precio: {{ festival.precio }} €</h3>
+        </div>
+        <a href="{% url 'formulario' id=festival.id %}">
 
+        <button class="comprar-btn">Comprar Entrada</button>
+        
 
+        </a>
+    </div>
+</div>
+
+<!-- Carrusel de intérpretes -->
 <h2>Intérpretes:</h2>
 <div class="carrusel-container carrusel-abajo">
     <div class="carrusel">
@@ -45,4 +64,4 @@
 {% block extra_scripts %}
     <!-- Cargar el script específico para esta página -->
     <script src="{% static 'js/carrusel.js' %}"></script>
-{% endblock %}
+{% endblock %}
