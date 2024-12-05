@@ -383,27 +383,29 @@ h2, h3 {
 
 
 /* Estilos del contenedor del carrusel */
+/* Estilos del contenedor del carrusel */
 .carrusel-container {
     position: relative;
     width: 100%; 
     overflow: hidden; /* Esto asegura que solo veas los elementos visibles */
+    margin: 0 auto;
+    max-width: calc(33.33% * 3 + 40px); /* 3 elementos visibles más 20px de márgenes entre ellos */
 }
 
 /* Estilos del carrusel (donde están los items) */
 .carrusel {
     display: flex; /* Esto asegura que los elementos se alineen horizontalmente */
+    flex-wrap: nowrap; /* Asegura que los elementos no se envuelvan */
     transition: transform 0.5s ease-in-out; /* Animación suave */
 }
 
 /* Estilos de cada item del carrusel */
 .carrusel-item {
-    flex: 0 0 auto; /* Esto hace que los items no se estiren, solo ocupen su tamaño */
-    width: 200px; /* Ajusta el tamaño de cada item */
-    margin-right: 20px; /* Espacio entre los items */
-    text-align: center; /* Centrar el contenido */
+    flex: 0 0 calc(33.33% - 20px); /* Cada item ocupa un 33.33% menos los márgenes */
+    box-sizing: border-box;
+    margin: 0 10px; /* Márgenes horizontales */
+    text-align: center;
 }
-
-
 
 /* Imagen dentro de cada item */
 .carrusel-item img {
@@ -418,13 +420,12 @@ h2, h3 {
     font-size: 1.4em;
     color: #333;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-decoration: none;
 }
 
 /* Botones de navegación (flechas) */
 .carrusel-button {
     position: absolute;
-    top: 50%; /* Centrado por defecto */
+    top: 50%;
     transform: translateY(-50%);
     background-color: transparent;
     color: gold;
@@ -436,37 +437,19 @@ h2, h3 {
     border-radius: 20%;
 }
 
-/* Flechas para el carrusel con la clase carrusel-arriba (flechitas arriba) */
-.carrusel-container .carrusel-button.prev {
-    top: 5px; /* Flecha arriba */
-}
-
-.carrusel-container .carrusel-button.next {
-    top: 5px; /* Flecha arriba */
-}
-
-/* Flechas para el carrusel con la clase carrusel-abajo (flechitas abajo) */
-.carrusel-container.carrusel-abajo .carrusel-button.prev {
-    bottom: 5px; /* Flecha abajo */
-}
-
-.carrusel-container.carrusel-abajo .carrusel-button.next {
-    bottom: 5px; /* Flecha abajo */
-}
-
 /* Ajustar las flechas de izquierda y derecha */
 .carrusel-button.prev {
-    left: 2px;
+    left: 10px;
 }
 .carrusel-button.next {
-    right: 2px;
+    right: 10px;
 }
-
 
 /* Efecto al pasar el cursor por las flechas */
 .carrusel-button:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Cambiar ligeramente el fondo al pasar el mouse */
+    background-color: rgba(0, 0, 0, 0.7);
 }
+
 
 /* Formulario */
 

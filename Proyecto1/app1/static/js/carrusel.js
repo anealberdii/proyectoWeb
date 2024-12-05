@@ -7,25 +7,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const totalItems = items.length;
     let index = 0;
 
-    function updateCarrusel () {
-        const itemWidth = items[0].clientWidth + 20; // Incluye el margen de 10px a cada lado
-        const totalVisibleWidth = itemWidth * itemsToShow;
+    function updateCarrusel() {
+        const itemWidth = items[0].getBoundingClientRect().width; // Ancho exacto del item
         carrusel.style.transform = `translateX(-${index * itemWidth}px)`;
 
-        // Revisamos si es el final y hacemos el loop
-        if (index >= totalItems) {
+        // Rehabilitar la transición para el loop al final
+        carrusel.style.transition = 'transform 0.5s ease-in-out';
+
+        // Si estamos al final del carrusel
+        if (index >= totalItems - itemsToShow) {
             setTimeout(() => {
-                carrusel.style.transition = 'none'; // Eliminamos la transición para el salto instantáneo
-                index = 0; // Volvemos al inicio
-                carrusel.style.transform = `translateX(0)`; // Reiniciamos la posición
-            }, 500); // Esperamos un pequeño intervalo para no interferir con la animación
-        } else {
-            carrusel.style.transition = 'transform 0.5s ease-in-out'; // Animación normal
+                carrusel.style.transition = 'none'; // Deshabilitar transición para el salto inmediato
+                index = 0; // Reiniciar al inicio
+                carrusel.style.transform = 'translateX(0)';
+            }, 500); // Tiempo igual al de la animación
         }
     }
 
     nextButton.addEventListener('click', () => {
-        if (index < totalItems) {
+        if (index < totalItems - itemsToShow) {
             index++; // Avanzar
         }
         updateCarrusel();
@@ -36,24 +36,19 @@ document.addEventListener('DOMContentLoaded', function () {
             index--; // Retroceder
         } else {
             index = totalItems - itemsToShow; // Ir al final en caso de retroceso desde el inicio
-            carrusel.style.transition = 'none'; // Eliminar animación
-            carrusel.style.transform = `translateX(-${index * (items[0].clientWidth + 20)}px)`;
+            carrusel.style.transition = 'none'; // Deshabilitar animación
+            const itemWidth = items[0].getBoundingClientRect().width;
+            carrusel.style.transform = `translateX(-${index * itemWidth}px)`;
             setTimeout(() => carrusel.style.transition = 'transform 0.5s ease-in-out', 50); // Rehabilitar animación
         }
         updateCarrusel();
     });
 
-  
-
-
     // Auto-scroll continuo
     setInterval(() => {
-        if (index < totalItems) {
+        if (index < totalItems - itemsToShow) {
             index++; // Avanza
         }
         updateCarrusel();
     }, 3000); // Cada 3 segundos
 });
-
-
-
