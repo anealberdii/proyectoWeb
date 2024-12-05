@@ -374,10 +374,18 @@ h2, h3 {
     transition: transform 0.3s ease; /* Efecto de transformación al pasar el ratón */
 }
 
+/* Estilos para la imagen de los intérpretes */
+.interprete-foto {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Redondear las esquinas si lo deseas */
+}
+
+
 /* Estilos del contenedor del carrusel */
 .carrusel-container {
     position: relative;
-    width: 100%;
+    width: 100%; 
     overflow: hidden; /* Esto asegura que solo veas los elementos visibles */
 }
 
@@ -395,39 +403,7 @@ h2, h3 {
     text-align: center; /* Centrar el contenido */
 }
 
-/* Estilos para la imagen de los intérpretes */
-.interprete-foto {
-    width: 100%;
-    height: auto;
-    border-radius: 8px; /* Redondear las esquinas si lo deseas */
-}
 
-
-
-
-
-/* Contenedor principal del carrusel */
-.carrusel-container {
-    position: relative;
-    width: 100%;
-    max-width: 100%; /* Aseguramos que ocupe todo el ancho disponible */
-    margin: 0 auto;
-    overflow: hidden; /* Solo se verá lo que está dentro del contenedor */
-}
-
-/* Carrusel que contiene todos los elementos */
-.carrusel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-/* Elemento individual dentro del carrusel */
-.carrusel-item {
-    flex: 0 0 33.33%; /* Hace que cada item ocupe un 33.33% del ancho del carrusel */
-    box-sizing: border-box;
-    margin: 0 10px; /* Añadimos un margen horizontal de 10px para espacio entre elementos */
-    text-align: center;
-}
 
 /* Imagen dentro de cada item */
 .carrusel-item img {
@@ -448,27 +424,44 @@ h2, h3 {
 /* Botones de navegación (flechas) */
 .carrusel-button {
     position: absolute;
-    top: 50%; /* Centrar verticalmente */
+    top: 50%; /* Centrado por defecto */
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-    color: white; /* Color del texto de las flechas */
+    background-color: transparent;
+    color: gold;
     border: none;
-    font-size: 2em; /* Tamaño de la flecha */
+    font-size: 2em;
     padding: 10px;
     cursor: pointer;
-    z-index: 100; /* Asegurar que estén sobre el carrusel */
-    border-radius: 50%; /* Forma redondeada */
+    z-index: 100;
+    border-radius: 20%;
 }
 
-/* Flecha izquierda */
+/* Flechas para el carrusel con la clase carrusel-arriba (flechitas arriba) */
+.carrusel-container .carrusel-button.prev {
+    top: 5px; /* Flecha arriba */
+}
+
+.carrusel-container .carrusel-button.next {
+    top: 5px; /* Flecha arriba */
+}
+
+/* Flechas para el carrusel con la clase carrusel-abajo (flechitas abajo) */
+.carrusel-container.carrusel-abajo .carrusel-button.prev {
+    bottom: 5px; /* Flecha abajo */
+}
+
+.carrusel-container.carrusel-abajo .carrusel-button.next {
+    bottom: 5px; /* Flecha abajo */
+}
+
+/* Ajustar las flechas de izquierda y derecha */
 .carrusel-button.prev {
-    left: 30px; /* Ajustar la posición a la izquierda del hueco vacío */
+    left: 2px;
+}
+.carrusel-button.next {
+    right: 2px;
 }
 
-/* Flecha derecha */
-.carrusel-button.next {
-    right: 30px; /* Ajustar la posición a la derecha del hueco vacío */
-}
 
 /* Efecto al pasar el cursor por las flechas */
 .carrusel-button:hover {
@@ -485,11 +478,19 @@ h2, h3 {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+#numero_entradas {
+    width: 48%;  /* Ajusta el ancho al 50% del espacio disponible */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
 .form-row {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
+    gap: 0.5cm; /* Espacio de medio centímetro entre las columnas */
 }
 
 .form-field {
@@ -548,7 +549,7 @@ input[type="checkbox"] {
 
 .promotores-table td {
     width: 20%;  /* 5 columnas ocupan el 100% */
-    padding: 30px;  /* Aumento el espacio interno de cada celda */
+    padding: 20px;  /* Aumento el espacio interno de cada celda */
     text-align: center;  /* Centra el contenido en cada celda */
     vertical-align: top;
     background-color: #f0f0f0; /* Color gris claro para las celdas */

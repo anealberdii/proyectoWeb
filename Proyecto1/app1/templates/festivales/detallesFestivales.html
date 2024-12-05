@@ -26,22 +26,23 @@
 
 
 <h2>Intérpretes:</h2>
-<div class="carrusel-container">
-<div class="carrusel">
-    {% for interprete in festival.interpretes.all %}
-        <div class="carrusel-item">
-        <li class="listainterpretes">
-            <img src="{{ interprete.foto.url }}" alt="{{ interprete.nombre }}" class="interprete-foto">
-            <p>{{interprete.nombre}}</p>
-        </li>
-        </div>
-    {% endfor %}
-</div>
-</div>
-<button class="carrusel-button prev">&#10094;</button>
-<button class="carrusel-button next">&#10095;</button>
+<div class="carrusel-container carrusel-abajo">
+    <div class="carrusel">
+        {% for interprete in festival.interpretes.all %}
+            <div class="carrusel-item">
+                <li class="listainterpretes">
+                    <img src="{{ interprete.foto.url }}" alt="{{ interprete.nombre }}" class="interprete-foto">
+                    <p>{{ interprete.nombre }}</p>
+                </li>
+            </div>
+        {% endfor %}
+    </div>
+    <button class="carrusel-button prev">&#10094;</button>
+    <button class="carrusel-button next">&#10095;</button>
 </div>
 
-<script src="{% static 'js/carrusel.js' %}"></script>
 {% endblock %}
-
+{% block extra_scripts %}
+    <!-- Cargar el script específico para esta página -->
+    <script src="{% static 'js/carrusel.js' %}"></script>
+{% endblock %}

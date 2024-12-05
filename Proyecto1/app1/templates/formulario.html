@@ -48,12 +48,10 @@
 
         <input type="hidden" id="festival" name="festival" value="{{ festival.nombre }}">
 
-        <div class="form-field">
-            <label for="terminos_condiciones">
-                <input type="checkbox" id="terminos_condiciones" name="terminos_condiciones" required>
-                Acepto los términos y condiciones.
-            </label>
-        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="terminos" name="terminos" required>
+              <label for="terminos">Acepto los términos y condiciones</label>
+      </div><br>
 
         <button type="submit" class="submit-btn">Enviar</button>
     </form>

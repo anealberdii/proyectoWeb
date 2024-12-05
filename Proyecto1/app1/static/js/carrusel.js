@@ -43,6 +43,9 @@ document.addEventListener('DOMContentLoaded', function () {
         updateCarrusel();
     });
 
+  
+
+
     // Auto-scroll continuo
     setInterval(() => {
         if (index < totalItems) {
