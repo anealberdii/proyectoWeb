@@ -5,7 +5,7 @@
 
 {% block content %}
 <div class="festival-foto-contenedor">
-    <img src="{{ festival.foto.url }}" alt="Foto del festival {{ festival.nombre }}" class="foto-festival">
+    <img src="{{ festival.fotoFondo.url }}" alt="Foto del festival {{ festival.nombre }}" class="foto-festival">
     
    
     <div class="festival-texto-encima">
@@ -35,8 +35,7 @@
             <h3>Precio: {{ festival.precio }} €</h3>
         </div>
 
-        <!-- Esto es en tu archivo detallesFestivales.html -->
-        <span id="entradas-disponibles" data-entradas="{{ festival.entradasDisponibles }}">
+        <span id="entradas-disponibles" data-entradas="{{ festival.entradasDisponibles }}" style="visibility:hidden;">
             {{ festival.entradasDisponibles }}
         </span>
 

@@ -35,6 +35,7 @@ class Festival (models.Model):
     precio = models.DecimalField(max_digits=6, decimal_places=2)
     foto = models.ImageField(upload_to='festivales/')
     entradasDisponibles = models.PositiveIntegerField()   
+    fotoFondo = models.ImageField(upload_to='festivales/') 
 
     def __str__(self):
         return self.nombre

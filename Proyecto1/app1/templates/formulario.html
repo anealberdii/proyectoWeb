@@ -59,7 +59,10 @@
     <div id="mensaje-exito" class="mensaje-exito" style="display: none;">
         <div class="modal-content">
             <p id="mensaje-exito-text"></p>
-            <button class="cerrar-btn" onclick="cerrarModal()">Aceptar</button>
+            <a href="{% url 'index' %}">
+                <button class="cerrar-btn" onclick="cerrarModal()">Aceptar</button>
+            </a>
+            
         </div>
     </div>
 {% endblock %}
