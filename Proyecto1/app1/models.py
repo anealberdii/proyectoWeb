@@ -46,3 +46,20 @@ class FestivalInterprete (models.Model):
    
     def __str__(self):
         return f"{self.interprete.nombre} en {self.festival.nombre}"
+
+class Reserva (models.Model):
+    festival = models.ForeignKey(Festival, on_delete=models.CASCADE, related_name="reservas")  # Relación con Festival
+    nombre = models.CharField(max_length=100)  # Nombre del cliente
+    apellidos = models.CharField(max_length=150)  # Apellidos del cliente
+    email = models.EmailField()  # Email del cliente
+    telefono = models.CharField(max_length=15)  # Teléfono del cliente
+    direccion = models.TextField(blank=True, null=True)  # Dirección (puede ser opcional)
+    localidad = models.CharField(max_length=100, blank=True, null=True)  # Localidad (opcional)
+    numEntradas = models.PositiveIntegerField()  # Número de entradas reservadas
+    fechaReserva = models.DateTimeField(auto_now_add=True)  # Fecha y hora de la reserva
+
+    class Meta:
+        db_table = 'app1_reservas'  # Nombre explícito de la tabla en la base de datos
+    
+    def __str__(self):
+        return f"{self.nombre} {self.apellidos} - {self.numEntradas} entradas para {self.festival.nombre}"

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Festival, Interprete, Promotor, FestivalInterprete
+from .models import Festival, Interprete, Promotor, FestivalInterprete, Reserva
 from datetime import datetime
 
 # Create your views here.
@@ -92,8 +92,60 @@ def detalles_interprete(request, id):
         'festivales': festivales
     }) 
 
-def formulario(request, id):
-    # Obtiene el festival por el ID
+
+def formulario(request, id):  
+    # Obtener el festival según el id
     festival = get_object_or_404(Festival, id=id)
-    # Pasa el festival al contexto para la plantilla
+
+    if request.method == 'POST':
+        # Recuperar los datos del formulario
+        nombre = request.POST.get('nombre')
+        apellidos = request.POST.get('apellidos')
+        email = request.POST.get('email')
+        telefono = request.POST.get('telefono')
+        direccion = request.POST.get('direccion', '')
+        localidad = request.POST.get('localidad', '')
+        numeroEntradas = request.POST.get('numero_entradas')  # Este será el campo del número de entradas
+        aceptoTerminos = request.POST.get('acepto_terminos') == 'true'
+
+        # Verificar si el campo número de entradas está vacío o no es válido
+        if not numeroEntradas:
+            return render(request, 'formulario.html', {
+                'festival': festival,
+                'error': 'Por favor, ingrese el número de entradas.'
+            })
+        
+        # Convertir el número de entradas a entero, si no es válido mostrar error
+        try:
+            numeroEntradas = int(numeroEntradas)
+        except ValueError:
+            return render(request, 'formulario.html', {
+                'festival': festival,
+                'error': 'Número de entradas no válido.'
+            })
+        
+        # Validar disponibilidad de entradas
+        if numeroEntradas > festival.entradasDisponibles:
+            return render(request, 'formulario.html', {
+                'festival': festival,
+                'error': 'No hay suficientes entradas disponibles.'
+            })
+
+        # Guardar la reserva en la base de datos
+        reserva = Reserva(
+            festival=festival,
+            nombre=nombre,
+            apellidos=apellidos,
+            email=email,
+            telefono=telefono,
+            direccion=direccion,
+            localidad=localidad,
+            numEntradas=numeroEntradas,
+        )
+        reserva.save()
+
+        # Actualizar las entradas disponibles del festival
+        festival.entradasDisponibles -= numeroEntradas
+        festival.save()
+
     return render(request, 'formulario.html', {'festival': festival})
