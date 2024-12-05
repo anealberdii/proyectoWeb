@@ -1,11 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
     <h1>Reserva de entradas para {{ festival.nombre }}</h1>
-
-    <form method="POST" class="formulario-reserva">
+    <form id="formulario-reserva" method="POST" class="formulario-reserva">
         {% csrf_token %}
-
         <div class="form-row">
             <div class="form-field">
                 <label for="nombre">Nombre:</label>
@@ -50,10 +49,21 @@
 
         <div class="checkbox-container">
             <input type="checkbox" id="terminos" name="terminos" required>
-              <label for="terminos">Acepto los términos y condiciones</label>
-      </div><br>
+            <label for="terminos">Acepto los términos y condiciones</label>
+        </div><br>
 
         <button type="submit" class="submit-btn">Enviar</button>
     </form>
 
+    <!-- Modal del mensaje de éxito -->
+    <div id="mensaje-exito" class="mensaje-exito" style="display: none;">
+        <div class="modal-content">
+            <p id="mensaje-exito-text"></p>
+            <button class="cerrar-btn" onclick="cerrarModal()">Aceptar</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{% static 'js/formulario.js' %}"></script>
 {% endblock %}

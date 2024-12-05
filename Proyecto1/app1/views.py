@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from .models import Festival, Interprete, Promotor, FestivalInterprete, Reserva
 from datetime import datetime
@@ -113,26 +114,17 @@ def formulario(request, id):
 
         # Verificar si el campo número de entradas está vacío o no es válido
         if not numeroEntradas:
-            return render(request, 'formulario.html', {
-                'festival': festival,
-                'error': 'Por favor, ingrese el número de entradas.'
-            })
+            return JsonResponse({'success': False, 'error': 'Por favor, ingrese el número de entradas.'})
         
         # Convertir el número de entradas a entero, si no es válido mostrar error
         try:
             numeroEntradas = int(numeroEntradas)
         except ValueError:
-            return render(request, 'formulario.html', {
-                'festival': festival,
-                'error': 'Número de entradas no válido.'
-            })
+            return JsonResponse({'success': False, 'error': 'Número de entradas no válido.'})
         
         # Validar disponibilidad de entradas
         if numeroEntradas > festival.entradasDisponibles:
-            return render(request, 'formulario.html', {
-                'festival': festival,
-                'error': 'No hay suficientes entradas disponibles.'
-            })
+            return JsonResponse({'success': False, 'error': 'No hay suficientes entradas disponibles.'})
 
         # Guardar la reserva en la base de datos
         reserva = Reserva(
@@ -150,5 +142,8 @@ def formulario(request, id):
         # Actualizar las entradas disponibles del festival
         festival.entradasDisponibles -= numeroEntradas
         festival.save()
+
+        # Responder con éxito
+        return JsonResponse({'success': True, 'message': '¡Compra realizada correctamente! Muchas gracias.'})
 
     return render(request, 'formulario.html', {'festival': festival})
