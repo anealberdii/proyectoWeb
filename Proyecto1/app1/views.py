@@ -84,17 +84,14 @@ def detalles_interprete(request, id):
     # Obtén el intérprete especificado, o muestra un error 404 si no existe
     interprete = get_object_or_404(Interprete, id=id)
     
-    # Obtener todos los registros de la tabla intermedia para este intérprete
-    festival_interprete_entries = FestivalInterprete.objects.filter(interprete=interprete)
-
-    # Obtener los festivales asociados a este intérprete
-    festivales = [entry.festival for entry in festival_interprete_entries]
+    # Obtener los festivales directamente desde la relación ManyToMany
+    festivales = interprete.festivales.all()
 
     # Renderiza la plantilla con los datos
     return render(request, 'interpretes/detallesInterpretes.html', {
         'interprete': interprete,
         'festivales': festivales
-    }) 
+    })
 
 
 def formulario(request, id):  
