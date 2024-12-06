@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}Comprar Entradas - Promo Concert{% endblock %}
+
+
 {% block content %}
     <h1>Reserva de entradas para {{ festival.nombre }}</h1>
     <form id="formulario-reserva" method="POST" class="formulario-reserva">
