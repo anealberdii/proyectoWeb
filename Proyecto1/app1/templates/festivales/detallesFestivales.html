@@ -40,9 +40,14 @@
         </span>
 
         
-        <a href="{% url 'formulario' id=festival.id %}">
-            <button class="comprar-btn">Comprar Entrada</button>
-        </a>
+        {% if festival.entradasDisponibles > 0 %}
+            <a href="{% url 'formulario' id=festival.id %}">
+                <button class="comprar-btn" id="comprar-btn">Comprar Entrada</button>
+            </a>
+        {% else %}
+            <button class="comprar-btn agotado-btn" id="comprar-btn" disabled>Agotado</button>
+        {% endif %}
+        
     </div>
 </div>
 

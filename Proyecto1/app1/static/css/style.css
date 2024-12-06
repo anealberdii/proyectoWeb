@@ -718,4 +718,9 @@ input[type="checkbox"] {
     color: black;  /* Cambia el color de los h3 dentro de las cajas de detalles */
 }
 
-
+/* HAU IGUAL GAIXKI DAO */
+button.comprar-btn.agotado-btn {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+}

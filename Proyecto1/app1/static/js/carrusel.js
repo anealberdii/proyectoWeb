@@ -54,16 +54,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 3000); // Cada 3 segundos
 
 
-    // Este es el bloque que chequea la cantidad de entradas disponibles
+    // Bloque que chequea la cantidad de entradas disponibles
     const entradasDisponiblesElement = document.getElementById('entradas-disponibles');
     const entradasDisponibles = parseInt(entradasDisponiblesElement.getAttribute('data-entradas'));
+    const comprarBtn = document.getElementById('comprar-btn');
 
-    // Condición para mostrar el mensaje solo si quedan 10 o menos entradas
-    if (entradasDisponibles <= 10) {
-        // Asegúrate de usar las comillas invertidas (backticks) para interpolar la variable
+    if (entradasDisponibles === 0) {
+        // Cambiar el texto del botón y su estilo
+        comprarBtn.textContent = 'Agotado';
+        comprarBtn.classList.add('agotado-btn'); // Clase CSS para el estilo gris
+        comprarBtn.disabled = true; // Deshabilitar el botón
+    } else if (entradasDisponibles <= 10 && entradasDisponibles>0) {
+        // Mostrar alerta si hay 10 o menos entradas
         alert(`¡Date prisa, solo quedan ${entradasDisponibles} entradas para el festival!`);
-    } else {
-        
     }
 
 });
