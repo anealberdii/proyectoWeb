@@ -20,12 +20,19 @@
         <p>{{ interprete.info_general |linebreaksbr }}</p>
         <h2>Genero musical: </h2>
         <p>{{interprete.genero_musica }}</p>
-        <h2>Festivales: </h2>
+    </div>
+        <div class="festivales-container">
+        <h2 class="titulo-festivales">Festivales:</h2>
         {% if festivales %}
-        
+        <div class="interpretes-festivales">
             {% for festival in festivales %}
-                <p>{{ festival.nombre }}</p>
+            <div class="festival-item">
+            <img src="{{ festival.foto.url }}" alt="{{ festival.nombre }}" class="interprete-festival-foto">
+            <p class="interprete-festival-nombre">{{ festival.nombre }}</p>
+            </div>
             {% endfor %}
+        </div>
+    
         
         {% else %}
             <p>No se encontraron festivales para este intérprete.</p>

@@ -724,3 +724,93 @@ button.comprar-btn.agotado-btn {
     color: white;
     cursor: not-allowed;
 }
+.interpretes-festivales {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas por fila */
+    gap: 20px; /* Espaciado entre los elementos */
+    margin: 20px 0;
+    justify-items: center; /* Centra cada elemento dentro de su celda */
+}
+
+.festival-item {
+    display: flex;
+    flex-direction: column; /* Alinea imagen y texto verticalmente */
+    align-items: center; /* Centra el contenido del bloque */
+    text-align: center; /* Asegura que el texto esté centrado */
+}
+
+.festival-nombre {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 8px; /* Espaciado entre la imagen y el nombre */
+}
+
+.interprete-festival-foto {
+    width: 100px; /* Tamaño de las fotos */
+    height: 100px;
+    border-radius: 8px; /* Bordes redondeados */
+    object-fit: cover; /* Recorta la imagen para que encaje perfectamente */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.interprete-festival-foto:hover {
+    transform: scale(1.1); /* Efecto de zoom */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra más fuerte */
+}
+.festivales-container {
+    background-color: rgb(218, 218, 218); /* Fondo gris claro */
+    border: 3px solid  #d2c578; /* Borde dorado */
+    border-radius: 30px; /* Bordes redondeados para un diseño más limpio */
+    padding: 20px; /* Espaciado interno */
+    margin: 20px auto; /* Centra el contenedor en la página */
+    max-width: 100%; /* Ajusta el ancho máximo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para un efecto elegante */
+}
+
+.titulo-festivales {
+    text-align: center; /* Centra el título */
+    font-size: 24px; /* Tamaño del texto del título */
+    font-weight: bold;
+    color: #333; /* Color del texto */
+    margin-bottom: 20px; /* Espaciado debajo del título */
+}
+
+
+/* Contenedor general de descripción y género musical */
+.interprete-detalles {
+    background-color: rgb(218, 218, 218); /* Fondo gris claro */
+    border: 2px solid #d2c578; /* Borde gris suave */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    margin: 20px auto; /* Espaciado externo y centrado */
+    max-width: 100%; /* Ancho máximo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    line-height: 1.6; /* Mejora el espaciado entre líneas */
+    font-family: 'Arial', sans-serif; /* Cambia la fuente a algo más legible */
+}
+
+/* Encabezados dentro del contenedor */
+.interprete-detalles h2 {
+    font-size: 22px; /* Ajusta el tamaño del encabezado */
+    font-weight: bold; /* Resalta el encabezado */
+    color: #333; /* Color del texto */
+    border-bottom: 3px solid #d2c578; /* Línea dorada debajo */
+    padding-bottom: 5px; /* Espaciado debajo del texto */
+    margin-bottom: 15px; /* Espaciado con el contenido siguiente */
+}
+
+/* Texto del párrafo */
+.interprete-detalles p {
+    color: #555; /* Texto en gris oscuro */
+    font-size: 16px; /* Tamaño del texto */
+    text-align: justify; /* Justifica el texto para alinearlo mejor */
+    margin-bottom: 15px; /* Espaciado entre párrafos */
+}
+
+/* Género musical */
+.interprete-detalles p:last-of-type {
+    font-weight: bold; /* Resalta el género musical */
+    color: #333; /* Color más oscuro */
+}
