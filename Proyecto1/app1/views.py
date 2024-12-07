@@ -120,8 +120,12 @@ def formulario(request, id):
             return JsonResponse({'success': False, 'error': 'Número de entradas no válido.'})
         
         # Validar disponibilidad de entradas
+        # Verificar si el número de entradas solicitado excede las disponibles
         if numeroEntradas > festival.entradasDisponibles:
-            return JsonResponse({'success': False, 'error': 'No hay suficientes entradas disponibles.'})
+            return JsonResponse({
+                'success': False,
+                'error': f'Lo siento, no hay tantas entradas disponibles. Solo hay {festival.entradasDisponibles} entradas.'
+        })
 
         # Guardar la reserva en la base de datos
         reserva = Reserva(

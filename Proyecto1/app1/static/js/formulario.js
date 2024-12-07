@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (formulario) {
         formulario.addEventListener("submit", function (event) {
-            event.preventDefault();  // Evita el envío tradicional del formulario
+            event.preventDefault(); // Evita el envío tradicional del formulario
 
             // Crear un objeto FormData con los datos del formulario
             const formData = new FormData(formulario);
@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then(response => response.json()) // Esperamos una respuesta JSON del servidor
             .then(data => {
-                // Si la respuesta del servidor indica éxito
                 if (data.success) {
                     // Mostrar el mensaje de éxito
                     document.getElementById("mensaje-exito-text").innerText = data.message;
@@ -27,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Limpiar el formulario después de mostrar el modal
                     formulario.reset();
                 } else {
-                    // Si hay error, mostrarlo
+                    // Mostrar el mensaje de error del servidor
                     alert(data.error || 'Hubo un problema al procesar tu reserva.');
                 }
             })
