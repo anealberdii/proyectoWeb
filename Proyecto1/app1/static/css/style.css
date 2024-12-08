@@ -504,6 +504,8 @@ h2, h3 {
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: white;
+    
 }
 
 .submit-btn {
@@ -526,6 +528,10 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 
+.form-field input:valid {
+    border: 2px solid green;
+    background-color: #e6ffe6;
+}
 
 /* Estilos del fondo del modal (oscurece el fondo) */
 #mensaje-exito {

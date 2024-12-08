@@ -3,7 +3,6 @@
 
 {% block title %}Comprar Entradas - Promo Concert{% endblock %}
 
-
 {% block content %}
     <h1>Reserva de entradas para {{ festival.nombre }}</h1>
     <form id="formulario-reserva" method="POST" class="formulario-reserva">
@@ -43,7 +42,7 @@
 
         <div class="form-row">
             <div class="form-field">
-                <label for="numero_entradas">Número de Entradas:</label>
+                <label for="numero_entradas">Número de entradas:</label>
                 <input type="number" id="numero_entradas" name="numero_entradas" min="1" required>
             </div>
         </div>
@@ -65,7 +64,6 @@
             <a href="{% url 'index' %}">
                 <button class="cerrar-btn" onclick="cerrarModal()">Aceptar</button>
             </a>
-            
         </div>
     </div>
 {% endblock %}
