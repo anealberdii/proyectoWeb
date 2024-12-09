@@ -20,11 +20,16 @@
         <p>{{ promotor.descripcion|linebreaksbr }}</p>
         <h2>Festivales: </h2>
         {% if festivales %}
-        
+        <div class="festival-grid">
             {% for festival in festivales %}
-                <p>{{ festival.nombre }}</p>
+            <a href="{% url 'detalles_festival' festival.id %}">
+                <div class="festival-card">
+                        <img src="{{ festival.foto.url }}" alt="Imagen de {{ festival.nombre }}" class="festival-image">
+                        <p class="festival-name">{{ festival.nombre }}</p>
+                    </div>
+                </a>
             {% endfor %}
-        
+        </div>
         {% else %}
             <p>No se encontraron festivales para este promotor.</p>
         {% endif %}

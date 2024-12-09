@@ -820,3 +820,100 @@ button.comprar-btn.agotado-btn {
     font-weight: bold; /* Resalta el género musical */
     color: #333; /* Color más oscuro */
 }
+
+/*Detalles promotores*/
+
+
+/* Contenedor principal con la foto de fondo */
+
+
+/* Título del promotor */
+.background-container-detInterprete h2 {
+    margin-top: 100px;
+    font-size: 1.8em;
+    color: #444;
+    font-weight: bold;
+}
+
+/* Contenedor de detalles del promotor */
+.promotor-detalles {
+    background-color: #fdfdf0; /* Fondo claro */
+    border: 2px solid #d2c578; /* Borde decorativo */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    padding: 20px; /* Espaciado interno */
+    max-width: 800px; /* Ancho máximo */
+    margin: 40px auto; /* Centra el contenedor */
+    color: #333; /* Texto oscuro */
+    text-align: center; /* Centra el texto */
+}
+
+/* Títulos dentro de los detalles */
+.promotor-detalles h2 {
+    font-size: 1.5em;
+    color: #444; /* Texto gris oscuro */
+    margin-bottom: 20px;
+}
+
+/* Texto descriptivo */
+.promotor-detalles p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555; /* Texto gris claro */
+    margin-bottom: 15
+}
+
+/*FESTIVALES DE PROMOTORES EN CARTAS*/
+/* Contenedor de la cuadrícula */
+.festival-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* Espaciado entre cartas */
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* Cada carta de festival */
+.festival-card {
+    background-color: #ffffff; /* Fondo blanco */
+    border: 2px solid #e0e0e0; /* Borde ligero */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    text-align: center; /* Centra el contenido */
+    overflow: hidden; /* Oculta desbordamientos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación en hover */
+}
+
+/* Hover en la carta */
+.festival-card:hover {
+    transform: translateY(-10px); /* Eleva la carta */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+/* Imagen del festival */
+.festival-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 2px solid #d2c578; /* Línea decorativa */
+}
+
+/* Nombre del festival */
+.festival-name {
+    padding: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #444; /* Texto gris oscuro */
+}
+/*PARA EL LINK DE LAS FOTOS A LOS FESTIVALES*/
+/* Elimina subrayados y estilos por defecto del enlace */
+.festival-link {
+    text-decoration: none;
+    color: inherit; /* Mantén el color del texto dentro de la carta */
+    display: block; /* Asegúrate de que todo el contenido de la carta sea clicable */
+}
+
+/* Opcional: cambia el cursor para indicar que es un enlace */
+.festival-link:hover {
+    cursor: pointer;
+}
