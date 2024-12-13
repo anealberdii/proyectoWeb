@@ -16,19 +16,21 @@
 
     <!-- Detalles del festival -->
     <div class="interprete-detalles">
-        <h2>Descripción: </h2>
+        <h2>Descripción </h2>
         <p>{{ interprete.info_general |linebreaksbr }}</p>
-        <h2>Genero musical: </h2>
+        <h2>Genero musical </h2>
         <p>{{interprete.genero_musica }}</p>
     </div>
         <div class="festivales-container">
-        <h2 class="titulo-festivales">Festivales:</h2>
+        <h2 class="titulo-festivales">Festivales</h2>
         {% if festivales %}
         <div class="interpretes-festivales">
             {% for festival in festivales %}
             <div class="festival-item">
-            <img src="{{ festival.foto.url }}" alt="{{ festival.nombre }}" class="interprete-festival-foto">
-            <p class="interprete-festival-nombre">{{ festival.nombre }}</p>
+                <a href="{% url 'detalles_festival' id=festival.id %}">
+                    <img src="{{ festival.foto.url }}" alt="{{ festival.nombre }}" class="interprete-festival-foto">
+                    <p class="interprete-festival-nombre">{{ festival.nombre }}</p>
+                </a>
             </div>
             {% endfor %}
         </div>

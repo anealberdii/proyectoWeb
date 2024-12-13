@@ -52,13 +52,15 @@
 </div>
 
 <!-- Carrusel de intérpretes -->
-<h2>Intérpretes:</h2>
+<h2>Intérpretes</h2>
 <div class="carrusel-container carrusel-abajo">
     <div class="carrusel">
         {% for interprete in festival.interpretes.all %}
             <div class="carrusel-item">
                 <li class="listainterpretes">
-                    <img src="{{ interprete.foto.url }}" alt="{{ interprete.nombre }}" class="interprete-foto">
+                    <a href="{% url 'detalles_interprete' id=interprete.id %}">
+                        <img src="{{ interprete.foto.url }}" alt="{{ interprete.nombre }}" class="interprete-foto">
+                    </a>
                     <p>{{ interprete.nombre }}</p>
                 </li>
             </div>
