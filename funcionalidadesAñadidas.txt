@@ -1,0 +1,19 @@
+Opciones de implementación seleccionadas:
+
+-Utilización de de métodos CRUD: 
+
+	-Update: diseñar un formulario o botón, que permita seleccionar un objeto de la base de datos y permita 	cambiar algun valor de sus atributos.
+	
+	En el formulario de compra de entradas, el valor de las entradas disponibles en la tabla Festival se 	actualiza reduciendo la cantidad según el número de entradas seleccionadas. 
+	
+	-Create: a partir de un formulario, que se genere una entrada una nueva entrada en la BBDD.
+
+	En la tabla Reserva se añade una nueva tupla con los datos proporcionados en el formulario.
+
+-Interacción enriquecida en el cliente con JavaScript (eventos, efectos) y sus librerías o frameworks. Todas las páginas .html deben contener algún evento o efecto, siendo mandatorio el comprobar los campos del formulario antes de mandarlo.
+
+Hemos desarrollado los siguientes archivos JavaScript: carrusel.js, festivalesLista.js, formulario.js, index.js y listaPromotores.js. Cada archivo HTML utiliza las funciones de JavaScript necesarias, permitiendo la interacción dinámica en las páginas.
+
+-Interacción enriquecida con AJAX
+
+Hemos utilizado AJAX en nuestro código para manejar los envíos de formularios de manera asíncrona. Esto nos permite enviar los datos al servidor sin recargar la página. Las funcionalidades que hemos implementado incluyen validar los campos del formulario en el cliente antes de enviarlos, enviar los datos al servidor utilizando fetch y procesar las respuestas del servidor. Si las respuestas son exitosas, mostramos un modal con un mensaje de confirmación y reiniciamos el formulario. Si ocurren errores, mostramos alertas o gestionamos los problemas directamente en el cliente, todo sin interrumpir la experiencia de navegación de los usuarios.
